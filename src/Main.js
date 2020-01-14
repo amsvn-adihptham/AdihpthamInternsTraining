@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { StyleSheet,View,Image, Text,Button, TextInput, TouchableOpacity, Alert } from 'react-native';
+import { StyleSheet,Linking,View,Image, Text,Button, TextInput, TouchableOpacity, Alert } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 export default class Main extends Component {
    render() {
@@ -9,17 +9,31 @@ export default class Main extends Component {
           source={require('./Picture3.png')}
         />
                 <Text style={styles.container}> Welcome to ADIHPTHAM </Text>
-       <View style={{padding: 5, flexDirection:'row'}}>
+       <View style={{padding: 2, flexDirection:'row'}}>
         <View style={{borderColor:'gray',margin:"5%",color:'white',borderWidth:1,flexDirection:'row'}}>
        <Icon name='user' size={20} color="white" style={{margin:10}} />
         <TextInput
         placeholder='Name'
         placeholderTextColor='white'
-      style={{ height: 40, color:'white',width:"80%"}}
+      style={{ height: 40, color:'white',width:"90%"}}
     />
     </View>
    </View>
-   <View style={{padding: 5, flexDirection:'row'}}>
+   <View style={{padding: 2, flexDirection:'row'}}>
+   <View style={{borderColor:'gray',margin:"5%",color:'white',borderWidth:1,flexDirection:'row'}}>
+    <Icon name='address-book' size={20} color="white" style={{margin:10}}/>
+    <TextInput
+        placeholder='Phone No.'
+        placeholderTextColor='white'
+        keyboardType="number-pad"
+
+      style={{ height: 40,color:'white', width:"90%"}}     
+    />
+      
+    </View>
+ 
+    </View>
+   <View style={{padding: 2, flexDirection:'row'}}>
    <View style={{borderColor:'gray',margin:"5%",color:'white',borderWidth:1,flexDirection:'row'}}>
     <Icon name='lock' size={20} color="white" style={{margin:10}}/>
     <TextInput
@@ -28,7 +42,9 @@ export default class Main extends Component {
         secureTextEntry={true}
       style={{ height: 40,color:'white', width:"80%"}}     
     />
+       <Icon name='eye' size={15} color="white" style={{margin:10}}/>
     </View>
+ 
     </View>
     <View  style={{width:"65%",hieght:20,marginTop:50}}>
         <Button
@@ -43,7 +59,15 @@ export default class Main extends Component {
        >
          <Text style={{color:'white',marginLeft:'33%'}}> Fogot Password?</Text>
        </TouchableOpacity>
-      
+       <Text style={{color:'white',marginLeft:'36%'}}>New User?
+  <Text
+    style={{color: 'red'}}
+    onPress={() => {Linking.openURL('http://www.example.com/')}}
+  >
+  Sign Up.
+  </Text>
+  
+</Text>
       </View>  
     );
     
