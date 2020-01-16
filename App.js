@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import { View, Text } from 'react-native';
-import Task1 from './src/Task1'
+import Main from './src/Main'
 
 export default class App extends Component {
   
 
   render() {
     return (
-      <Task1/>
+      <Main/>
     );
   }
 }
