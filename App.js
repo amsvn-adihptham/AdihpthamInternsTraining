@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { View, Text } from 'react-native';
-import Main from './src/Main';
+import Task3 from './src/Task3';
 export default class App extends Component {
   constructor(props) {
     super(props);
@@ -10,7 +10,7 @@ export default class App extends Component {
 
   render() {
     return (
-      <Main/>
+      <Task3/>
     );
   }
 }
