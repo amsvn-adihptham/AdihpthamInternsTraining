@@ -81,6 +81,12 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
    
   },
+  customSlide: {
+    backgroundColor: 'green',
+    alignItems: 'center',
+    justifyContent: 'center',
+   
+  },
   customImage: {
     width: '100%',
     height: '100%',
