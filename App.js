@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { View, Text,Button} from 'react-native';
-import Task4PP from './src/Task4PP';
+
+import Task3Prav from './src/Task3Prav';
 
 class App extends Component {
   constructor(props) {
@@ -11,7 +12,7 @@ class App extends Component {
 
   render() {
     return (
-   <Task4PP/>
+   <Task3Prav/>
     );
   }
 }

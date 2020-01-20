@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, TouchableOpacity } from 'react-native';
 import { Container,Card,CardItem,SafeAreaView, Header, Content, Title, Footer, Icon, FooterTab, Left, Body, Right, Button,} from 'native-base';
 import{Avatar,} from 'react-native-elements';
 
@@ -32,8 +32,7 @@ export default class Task4PP extends Component {
               <View style={{marginLeft:"2%",marginRight:"2%",marginBottom:"10%"}}>
         <Card>
             <CardItem header bordered>
-            <Avatar
-  rounded size="large"
+            <Avatar rounded size="large"
   source={require('./Maria.jpg')}
 />
             <Text style={{fontWeight:"bold",marginLeft:"5%", height:40,fontSize:22,color:"darkblue"}}>Syeda Maria Anjum</Text>
@@ -56,10 +55,10 @@ export default class Task4PP extends Component {
                     <Avatar rounded title="PP" size="small" source={require('./Pooja.jpg')}/>
                     <Text style={{marginRight:"15%",marginLeft:"1%",fontSize:10}}>Pooja Polampalli</Text>
                     <View style={{flexDirection:"row"}}>
-                    <Button style={{backgroundColor:"lightgreen",width:"35%"}}>
-                        <Icon name="md-heart" style={{color:"green",fontSize:20}}/>
-                        <Text style={{color:"green",fontSize:10}}>+23</Text>
-                    </Button>
+                    <TouchableOpacity style={{backgroundColor:"lightgreen",flexDirection:"row", width:"35%"}}>
+                        <Icon name="md-heart" style={{color:"green",fontSize:15,marginLeft: "5%",marginTop: "20%",}}/>
+                       <Text style={{color:"green",marginTop:"20%",fontSize:12}}>+23</Text>
+                    </TouchableOpacity>
                     <View style={{marginLeft:"2%",marginRight:"2%"}}>
                     <Button style={{backgroundColor:"silver"}}>
                         <Icon name="md-woman" style={{color:"gray",fontSize:15}}/>
