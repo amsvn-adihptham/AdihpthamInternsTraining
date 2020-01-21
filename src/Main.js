@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import { View, Text } from 'react-native';
-import Task6 from './TrainingPhase/Task6';
+import Task6Container from './Container/Task6Container';
 export default class Main extends Component {
   
   render() {
     return (
-        <Task6/>
+        <Task6Container/>
     );
   }
 }
