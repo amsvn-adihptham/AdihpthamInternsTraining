@@ -15,7 +15,11 @@
     "react-native": "0.61.5",
     "react-native-elements": "^1.2.7",
     "react-native-image-slider": "^2.0.3",
+    "react-native-material-dropdown": "^0.11.1",
     "react-native-modal": "^11.5.3",
+    "react-native-numeric-input": "^1.8.3",
+    "react-native-popup-menu": "^0.15.6",
+    "react-native-search-header": "^0.3.5",
     "react-native-simple-radio-button": "^2.7.4",
     "react-native-vector-icons": "^6.6.0"
   },

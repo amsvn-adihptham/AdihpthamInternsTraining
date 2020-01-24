@@ -73,8 +73,12 @@ export default class Task6 extends Component {
               </View>
           </CardItem>
           <CardItem>
-              <Button  style={{backgroundColor:"green",marginLeft:"30%",width:"40%"}} onPress={() => {
-                  this.props.setModalVisible();
+            <Button title="validate" onPress={() => {this.props.CheckTextInput();
+                }}>
+
+            </Button>
+
+              <Button  style={{backgroundColor:"green",marginLeft:"30%",width:"40%"}} onPress={() => {this.props.setModalVisible();
                 }}>
                    
                   <Text style={{color:"white",marginLeft:"15%", fontSize:15,}}>SAVE DATA</Text>
@@ -94,7 +98,7 @@ export default class Task6 extends Component {
 <Card>
     <CardItem bordered>
             <Text style={{fontSize:15,fontWeight:"bold"}} >Name:</Text>
-            <Text style={{marginLeft:"5%"}}>{this.props.name}</Text>
+             
             
     </CardItem>
     <CardItem bordered>
