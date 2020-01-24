@@ -8,7 +8,6 @@ export default class Task6Component extends Component {
     this.state = {
     
      PhoneNumber:'',
-    DOB:'',
     City:'',
     State:'',
     EditProfile:false,
@@ -18,6 +17,41 @@ export default class Task6Component extends Component {
     
     };
   }
+
+ 
+  CheckTextInput = () => {
+    //Handler for the Submit onPress
+    if (this.state.PhoneNumber == '') 
+    {
+      alert('Please Enter PhoneNumber');
+    }
+      else if (this.state.date == '') 
+      {       
+        alert('Please Enter DOB');        
+      } 
+      else if (this.state.City == '')
+      {
+        alert('Please Enter City')
+      }
+      else if(this.state.State == '')
+      {
+        alert('Please Enter State')
+      }
+      else if(this.state.checked == '')
+      {
+        alert('Please Choose Gender')
+      }
+      else if(this.state.check == '')
+      {
+        alert('Please Choose Marital status')
+      }
+      else {
+        alert('success')
+        this.EditProfileIcon();
+      }
+      
+    }
+  
 
   handlePhoneChange=(text)=>{
     this.setState({PhoneNumber:text})
@@ -38,6 +72,7 @@ export default class Task6Component extends Component {
   EditProfileIcon=() => {
     this.setState({EditProfile:false})
 }
+
 DateChange=(date)=>{
   this.setState({date: date})
 }
@@ -51,10 +86,14 @@ MaritalStatus=(check)=>{
   this.setState({check:check})
  }
 
+ 
+
   render() {
     
     return (
     <Task6
+    
+    CheckTextInput={()=>this.CheckTextInput()}
     PhoneNumber={this.state.PhoneNumber}
     handlePhoneChange={(text)=>this.handlePhoneChange(text)}
     City={this.state.City}
@@ -69,7 +108,8 @@ MaritalStatus=(check)=>{
     check={this.state.check}
     ChooseGender={this.ChooseGender}
     MaritalStatus={this.MaritalStatus}
-    EditProfileIcon={this.EditProfileIcon} />
+    EditProfileIcon={this.EditProfileIcon}
+     />
 
     );
   }

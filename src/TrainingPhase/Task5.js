@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import { View, Text, TextInput, TouchableOpacity, ScrollView, Image } from 'react-native';
+import { View, Text, TextInput, TouchableOpacity, ScrollView, Image, StyleSheet, Dimensions } from 'react-native';
 import Icon  from 'react-native-vector-icons/FontAwesome';
 import ImageSlider from 'react-native-image-slider';
 import { Avatar } from 'react-native-paper';
+import Carousel from 'react-native-snap-carousel';
 import { Container, Content, Header, Left,Right, Body, Button, Footer, FooterTab, Card } from 'native-base';
 
 export default class Task5 extends Component {
@@ -10,7 +11,58 @@ export default class Task5 extends Component {
     super(props);
     this.state = { password:''
     };
+    this.props = props;
+    this._carousel = {};
+    this.init();
   }
+
+  init(){
+      this.state={
+          cards: [
+              {
+                id: "001",
+                title:"Slide ",
+                body:"Image 1",
+                image:"http://placeimg.com/640/480/any"
+              },
+              {
+                id: "002",
+                title:"Slide Banner",
+                body: "Image 2",
+                image:"https://placeimg.com/640/640/nature"
+              },
+              {
+                id: "003",
+                title:" Banner",
+                body:"Image 3",
+                image:"https://placeimg.com/640/640/beer"
+              }
+          ]
+      };
+  }
+
+  handleSnapToItem(index){
+    console.warn("snapped to ", index)
+  }
+
+  _renderItem = ( {item, index} ) => {
+    return (
+        <Container style={{backgroundColor:'white', height:175, marginLeft:-20}}>
+        <Content >
+            <TouchableOpacity>
+              <Body>
+                <Text style={styles.textstyle}>{item.title}</Text>
+                <Text style={{marginTop:5}}> {item.body}</Text>
+                <Image style={{height:75, width:150, marginTop:15}} source={{uri:item.image}}/>
+                <Text>Thank You!</Text>
+              </Body>
+              </TouchableOpacity>
+        </Content>
+        
+      </Container>         
+    );
+  }
+
 
   render() {
     return (
@@ -37,7 +89,7 @@ export default class Task5 extends Component {
             </Button>
             </Right>
             </Header>
-<ScrollView>
+<ScrollView style={{backgroundColor:'grey'}}>
             <Card style={{height:120, width:'95%',marginLeft:9 }}>
             <ImageSlider 
             loopBothSides
@@ -150,8 +202,24 @@ export default class Task5 extends Component {
               Items Viewed Before
           </Text>
 
-          <ScrollView >
-         <View style={{flexDirection:'row', flex:4}}>
+          <Carousel
+                        ref={ (c) => { this._carousel = c; } }
+                        data={this.state.cards}
+                        renderItem={this._renderItem.bind(this)}
+                        // onSnapToItem={this.handleSnapToItem.bind(this)}
+                        layout={'default'}
+                        firstItem={0}
+                        sliderWidth={sliderWidth}
+                        itemWidth={340}
+                        itemHeight={140}
+                        containerCustomStyle={{left:30, top:'5%'}}
+                        slideStyle={{ flex: 1 }}
+                        autoplay={true}
+                        autoplayInterval={3000}
+                         />
+
+          
+         {/* <View style={{flexDirection:'row'}}>
              <TouchableOpacity>
               <Card style={{width:'90%',flexDirection:'row', marginLeft:18, height:75, marginBottom:'0%', borderLeftWidth:5, borderColor:"purple"}}>
                   <Text style={{fontSize:25, marginLeft:60, marginTop:15}}>
@@ -182,12 +250,10 @@ export default class Task5 extends Component {
                       Slide Banner
                   </Text>
               </Card>
-          </TouchableOpacity> 
+          </TouchableOpacity>      
 
-         
+</View> */}
 
-</View>
-</ScrollView>
 
 
             <Content/>
@@ -221,3 +287,13 @@ export default class Task5 extends Component {
     );
   }
 }
+
+const styles = StyleSheet.create({
+    textstyle:{
+        color:'black',
+        fontSize:20,
+        
+    }
+});
+
+const sliderWidth = 300

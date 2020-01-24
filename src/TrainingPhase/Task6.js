@@ -43,11 +43,7 @@ export default class Task6 extends Component {
       <Card style={{width:'90%', marginLeft:17, marginTop:20}}>
             <CardItem header bordered style={{backgroundColor:'skyblue'}}>
               <Text style={{fontSize:20}}>Contact Information</Text>
-             
-              
-              <TouchableOpacity onPress={this.props.EditProfileIcon}>
-                  <Icon name='check-circle' size={20} style={{marginLeft:100}}/>
-              </TouchableOpacity>
+                  <Icon name='check-circle' size={20} style={{marginLeft:95}}/>
               </CardItem>
               <CardItem bordered>
               <Body>
@@ -55,6 +51,8 @@ export default class Task6 extends Component {
                   placeholder='Phone Number'
                   placeholderTextColor='black'
                   keyboardType='numeric'
+                  maxLength={10}
+                  value={this.props.PhoneNumber}
                   style={{width:'80%'}} onChangeText={(text)=>this.props.handlePhoneChange(text)}>
 
                   </TextInput>             
@@ -83,46 +81,46 @@ export default class Task6 extends Component {
         }}
         onDateChange={(date) => this.props.DateChange(date)}
       /> 
-      
-      
-                  
+              
                   <TextInput
                   placeholder='City'
                   placeholderTextColor='black'
-                  style={{width:'80%'}} onChangeText={(text)=>this.props.handleCityChange(text)}>
-                
+                  style={{width:'80%'}} onChangeText={(text)=>this.props.handleCityChange(text)}
+                  maxLength={15}
+                  value={this.props.City}>
                   </TextInput>
 
                   <TextInput
                   placeholder='State'
                   placeholderTextColor='black'
-                  style={{width:'80%'}} onChangeText={(text)=>this.props.handleStateChange(text)}>
-                  
+                  style={{width:'80%'}} onChangeText={(text)=>this.props.handleStateChange(text)}
+                  maxLength={15}
+                  value={this.props.State}>
                   </TextInput>
 
         <View style={{flexDirection:'row'}}>
         <View style={{flexDirection:'row'}}>
         <RadioButton
-         value="male"
-          status={this.props.checked === 'male' ? 'checked' : 'unchecked'}
-          onPress={(checked) => { this.props.ChooseGender('male')}}
+         value="Male"
+          status={this.props.checked === 'Male' ? 'checked' : 'unchecked'}
+          onPress={(checked) => { this.props.ChooseGender('Male')}}
         />
         <Text style={{marginTop:8}}>Male</Text>
         </View>
 
         <View style={{flexDirection:'row', marginLeft:25}}>
         <RadioButton
-         value="female"
-          status={this.props.checked === 'female' ? 'checked' : 'unchecked'}
-          onPress={(checked) => { this.props.ChooseGender('female')}}/>
+         value="Female"
+          status={this.props.checked === 'Female' ? 'checked' : 'unchecked'}
+          onPress={(checked) => { this.props.ChooseGender('Female')}}/>
         <Text style={{marginTop:8}}>Female</Text>
         </View>
 
         <View style={{flexDirection:'row', marginLeft:25}}>
         <RadioButton
-          value="other"
-          status={this.props.checked === 'other' ? 'checked' : 'unchecked'}
-          onPress={() => { this.props.ChooseGender('other')}}/>
+          value="Other"
+          status={this.props.checked === 'Other' ? 'checked' : 'unchecked'}
+          onPress={() => { this.props.ChooseGender('Other')}}/>
         <Text style={{marginTop:8}}>Other</Text>
         </View>
         </View>
@@ -131,27 +129,27 @@ export default class Task6 extends Component {
         <View style={{flexDirection:'row'}}>
         <View style={{flexDirection:'row'}}>
         <RadioButton
-          value="single"
-          status={this.props.check === 'single' ? 'checked' : 'unchecked'}
-          onPress={() => { this.props.MaritalStatus('single')}}
+          value="Single"
+          status={this.props.check === 'Single' ? 'checked' : 'unchecked'}
+          onPress={() => { this.props.MaritalStatus('Single')}}
           color='blue'/>
         <Text style={{marginTop:8}}>Single</Text>
         </View>
 
         <View style={{flexDirection:'row', marginLeft:18}}>
         <RadioButton
-          value="married"
-          status={this.props.check === 'married' ? 'checked' : 'unchecked'}
-          onPress={() => { this.props.MaritalStatus('married')}}
+          value="Married"
+          status={this.props.check === 'Married' ? 'checked' : 'unchecked'}
+          onPress={() => { this.props.MaritalStatus('Married')}}
           color='blue'/>
         <Text style={{marginTop:8}}>Married</Text>
         </View>
 
         <View style={{flexDirection:'row', marginLeft:22}}>
         <RadioButton
-          value="divorcee"
-          status={this.props.check === 'divorcee' ? 'checked' : 'unchecked'}
-          onPress={() => { this.props.MaritalStatus('divorcee')}}
+          value="Divorcee"
+          status={this.props.check === 'Divorcee' ? 'checked' : 'unchecked'}
+          onPress={() => { this.props.MaritalStatus('Divorcee')}}
           color='blue'/>
         <Text style={{marginTop:8}}>Divorcee</Text>
         </View>
@@ -159,21 +157,34 @@ export default class Task6 extends Component {
 
                 </Body>
                 </CardItem>
+                <CardItem>
+                <View style={{flexDirection:'row', marginTop:10}}>
+        <Button 
+        onPress={this.props.CheckTextInput}        
+        style={{backgroundColor:'skyblue', width:70, marginLeft:47}}>
+        <Text style={{marginLeft:18, fontSize:15}}>Save</Text>
+        </Button>
+
+        <Button onPress={this.props.EditProfileIcon}
+        style={{backgroundColor:'skyblue', width:70, marginLeft:60}}>
+        <Text style={{marginLeft:13, fontSize:15}}>Cancel</Text>
+        </Button>
+        </View>
+                </CardItem>
                 </Card>
+
+        
                 
      :
-      
-    
+          
       <Card style={{width:'90%', marginLeft:17, marginTop:20}}>
             <CardItem header bordered style={{backgroundColor:'skyblue'}}>
               <Text style={{fontSize:20}}>Contact Information</Text>
               <TouchableOpacity onPress={this.props.Editprofile}>
-                  <Icon name='pencil' size={20} style={{marginLeft:100}}/>
+                  <Icon name='pencil' size={20} style={{marginLeft:95}}/>
               </TouchableOpacity>
             </CardItem>
-            
-
-         
+                    
 
             <CardItem bordered>
               <Body>
@@ -201,21 +212,18 @@ export default class Task6 extends Component {
                  </Text>
               </Body>
             </CardItem>
+            <CardItem>
+              <Button onPress={() => alert('Details saved successfully')}
+              style={{width:'30%', marginLeft:100, backgroundColor:'skyblue'}}>
+                <Text style={{fontSize:18, marginLeft:30}}>
+                  Ok
+                </Text>
+              </Button>
+            </CardItem>
     </Card> }
+
+    
          
-
-        
-
-       <View style={{flexDirection:'row', marginTop:10}}>
-        <Button style={{backgroundColor:'skyblue', width:70, marginLeft:80}}>
-            <Text style={{marginLeft:18, fontSize:15}}>Save</Text>
-          </Button>
-
-          <Button style={{backgroundColor:'skyblue', width:70, marginLeft:60}}>
-            <Text style={{marginLeft:13, fontSize:15}}>Cancel</Text>
-          </Button>
-          </View>
-
         </ScrollView>
       </Container>
       
